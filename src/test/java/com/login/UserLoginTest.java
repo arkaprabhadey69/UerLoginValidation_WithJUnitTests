@@ -103,5 +103,21 @@ public class UserLoginTest {
         Assert.assertEquals(false,valid);
 
     }
+    @Test
+    public void if_password_less_than_eight_chars_return_false()
+    {
+        String password="india12";
+        boolean valid= user.isPasswordValid(password);
+        Assert.assertEquals(false,valid);
+
+    }
+    @Test
+    public void if_password_greater_than_equal_to_eight_chars_return_true()
+    {
+        String password="India123@";
+        boolean valid= user.isPasswordValid(password);
+        Assert.assertEquals(true,valid);
+
+    }
 
 }

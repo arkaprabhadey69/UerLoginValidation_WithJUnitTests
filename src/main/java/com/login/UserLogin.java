@@ -65,4 +65,21 @@ public class UserLogin {
         return found;
 
     }
+    public static boolean isPasswordValid(String password)
+    {
+
+        String regex2 = "^(?=.*[A-Z])(?=.*\\d)(?=.*[^\\dA-Z]).{8,}$";
+        String regex1="^(?=.*?[0-9a-zA-Z])[0-9a-zA-Z]*[@#$%][0-9a-zA-Z]*$";
+        Pattern pattern1 = Pattern.compile(regex1);
+        Pattern pattern2 = Pattern.compile(regex2);
+        if (password == null)
+        {
+            return false;
+        }
+
+
+        Matcher matcher1 = pattern1.matcher(password);
+        Matcher matcher2 = pattern2.matcher(password);
+        return matcher1.matches()&&matcher2.matches();
+    }
 }
