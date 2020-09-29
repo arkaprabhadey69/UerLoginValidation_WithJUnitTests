@@ -151,5 +151,21 @@ public class UserLoginTest {
         Assert.assertEquals(true,valid);
 
     }
+    @Test
+    public void if_password_has_at_exactly_one_special_symbol_return_true()
+    {
+        String password="Arkaprabha123@";
+        boolean valid= user.isPasswordValid(password);
+        Assert.assertEquals(true,valid);
+
+    }
+    @Test
+    public void if_password_has_more_than_one_special_symbols_return_false()
+    {
+        String password="Arkapra1@@";
+        boolean valid= user.isPasswordValid(password);
+        Assert.assertEquals(false,valid);
+
+    }
 
 }
