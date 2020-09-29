@@ -55,6 +55,53 @@ public class UserLoginTest {
         Assert.assertEquals(false,valid);
 
     }
+    @Test
+    public void if_mobile_pattern_matches_return_true()
+    {
+        String mobile="91 8961377964";
+        boolean valid= user.MobileValidate(mobile);
+        Assert.assertEquals(true,valid);
 
+    }
+    @Test
+    public void if_no_country_code_given_return_false()
+    {
+        String mobile="8961377964";
+        boolean valid= user.MobileValidate(mobile);
+        Assert.assertEquals(false,valid);
+
+    }
+    @Test
+    public void if_no_space_after_country_code_given_return_false()
+    {
+        String mobile="918961377964";
+        boolean valid= user.MobileValidate(mobile);
+        Assert.assertEquals(false,valid);
+
+    }
+    @Test
+    public void if_more_than_two_letters_country_code_given_return_false()
+    {
+        String mobile="917 8961377964";
+        boolean valid= user.MobileValidate(mobile);
+        Assert.assertEquals(false,valid);
+
+    }
+    @Test
+    public void if_more_than_ten_digit_number_given_return_false()
+    {
+        String mobile="91 78961377964";
+        boolean valid= user.MobileValidate(mobile);
+        Assert.assertEquals(false,valid);
+
+    }
+    @Test
+    public void if_more_than_one_space_after_country_code_given_return_false()
+    {
+        String mobile="91  8961377964";
+        boolean valid= user.MobileValidate(mobile);
+        Assert.assertEquals(false,valid);
+
+    }
 
 }

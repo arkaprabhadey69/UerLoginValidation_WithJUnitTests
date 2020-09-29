@@ -47,4 +47,22 @@ public class UserLogin {
         return found;
 
     }
+    public static boolean MobileValidate(String name)
+    {
+        String number="^\\d{2}(\\s{1}\\d{10})$";
+        Pattern pattern = Pattern.compile(number);
+        Matcher matcher =  pattern.matcher(name);
+        boolean found = false;
+        while (matcher.find())
+        {
+            System.out.println("Valid Number");
+            found = true;
+        }
+        if(!found)
+        {
+            System.out.println("Invalid Number");
+        }
+        return found;
+
+    }
 }

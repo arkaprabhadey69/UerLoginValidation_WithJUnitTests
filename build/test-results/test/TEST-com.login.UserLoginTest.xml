@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.login.UserLoginTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-09-29T09:37:50" hostname="LAPTOP-JP0FR8LN" time="0.007">
+<testsuite name="com.login.UserLoginTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-09-29T09:52:41" hostname="LAPTOP-JP0FR8LN" time="0.002">
   <properties/>
-  <testcase name="if_count_of_char_of_last_name_less_than_three_return_false" classname="com.login.UserLoginTest" time="0.004"/>
-  <testcase name="if_count_of_char_less_than_three_return_false" classname="com.login.UserLoginTest" time="0.001"/>
-  <testcase name="if_first_letter_of_last_name_small_return_false" classname="com.login.UserLoginTest" time="0.0"/>
-  <testcase name="if_last_name_matches_pattern_return_true" classname="com.login.UserLoginTest" time="0.001"/>
-  <testcase name="if_first_letter_small_return_false" classname="com.login.UserLoginTest" time="0.0"/>
-  <testcase name="if_name_matches_pattern_return_true" classname="com.login.UserLoginTest" time="0.0"/>
-  <system-out><![CDATA[Invalid last name
-Invalid first name
-Invalid last name
-Valid last Name
-Invalid first name
-Valid first Name
+  <testcase name="if_more_than_one_space_after_country_code_given_return_false" classname="com.login.UserLoginTest" time="0.002"/>
+  <system-out><![CDATA[Invalid Number
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
