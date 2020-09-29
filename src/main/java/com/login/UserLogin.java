@@ -12,16 +12,31 @@ public class UserLogin {
     public static boolean FirstNameValidate(String name)
     {
         String y="^[A-Z]{1}(?=.*[a-z]).{2,}$";
-
         Pattern pattern = Pattern.compile(y);
-
-
         Matcher matcher =  pattern.matcher(name);
-
         boolean found = false;
         while (matcher.find())
         {
             System.out.println("Valid first Name");
+            found = true;
+        }
+        if(!found)
+        {
+            System.out.println("Invalid first name");
+
+        }
+        return found;
+
+    }
+    public static boolean LastNameValidate(String name)
+    {
+        String y="^[A-Z]{1}(?=.*[a-z]).{2,}$";
+        Pattern pattern = Pattern.compile(y);
+        Matcher matcher =  pattern.matcher(name);
+        boolean found = false;
+        while (matcher.find())
+        {
+            System.out.println("Valid last Name");
             found = true;
         }
         if(!found)

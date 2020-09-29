@@ -31,6 +31,30 @@ public class UserLoginTest {
         Assert.assertEquals(false,valid);
 
     }
+    @Test
+    public void if_last_name_matches_pattern_return_true()
+    {
+        String lastname="Dey";
+        boolean valid= user.LastNameValidate(lastname);
+        Assert.assertEquals(true,valid);
+
+    }
+    @Test
+    public void if_first_letter_of_last_name_small_return_false()
+    {
+        String lastname="dey";
+        boolean valid= user.LastNameValidate(lastname);
+        Assert.assertEquals(false,valid);
+
+    }
+    @Test
+    public void if_count_of_char_of_last_name_less_than_three_return_false()
+    {
+        String lastname="De";
+        boolean valid= user.LastNameValidate(lastname);
+        Assert.assertEquals(false,valid);
+
+    }
 
 
 }
