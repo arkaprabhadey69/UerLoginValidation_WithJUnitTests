@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.login.UserLoginTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-09-29T10:00:48" hostname="LAPTOP-JP0FR8LN" time="0.002">
+<testsuite name="com.login.UserLoginTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-09-29T10:07:12" hostname="LAPTOP-JP0FR8LN" time="0.002">
   <properties/>
-  <testcase name="if_password_greater_than_equal_to_eight_chars_return_true" classname="com.login.UserLoginTest" time="0.002"/>
+  <testcase name="if_password_does_not_have_at_least_one_cap_return_true" classname="com.login.UserLoginTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
