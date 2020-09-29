@@ -128,11 +128,27 @@ public class UserLoginTest {
 
     }
     @Test
-    public void if_password_does_not_have_at_least_one_cap_return_true()
+    public void if_password_does_not_have_at_least_one_cap_return_false()
     {
         String password="india12356@";
         boolean valid= user.isPasswordValid(password);
         Assert.assertEquals(false,valid);
+
+    }
+    @Test
+    public void if_password_does_not_have_at_least_number_return_false()
+    {
+        String password="Indialmao@";
+        boolean valid= user.isPasswordValid(password);
+        Assert.assertEquals(false,valid);
+
+    }
+    @Test
+    public void if_password_does_have_at_least_number_return_true()
+    {
+        String password="Arkapra1@";
+        boolean valid= user.isPasswordValid(password);
+        Assert.assertEquals(true,valid);
 
     }
 
