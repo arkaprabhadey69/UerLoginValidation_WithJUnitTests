@@ -34,7 +34,6 @@ public class EmailValidateTest {
         UserLogin u= new UserLogin();
         try {
             boolean result = u.EmailValidate(this.email);
-            //Assert.assertEquals(this.valid,result);
             Assert.assertTrue(result);
         }
         catch (UserLoginException e)

@@ -13,7 +13,7 @@ public class UserLoginTest {
         {
             String firstname ="";
             boolean valid = user.FirstNameValidate(firstname);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -28,7 +28,7 @@ public class UserLoginTest {
         try {
             String firstname = null;
             boolean valid = user.FirstNameValidate(firstname);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -88,7 +88,7 @@ public class UserLoginTest {
         {
             String firstname ="";
             boolean valid = user.LastNameValidate(firstname);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -104,7 +104,7 @@ public class UserLoginTest {
         try {
             String firstname = null;
             boolean valid = user.LastNameValidate(firstname);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -119,7 +119,7 @@ public class UserLoginTest {
         try {
             String firstname = "dey";
             boolean valid = user.LastNameValidate(firstname);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -135,7 +135,7 @@ public class UserLoginTest {
         try {
             String firstname = "de";
             boolean valid = user.LastNameValidate(firstname);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -150,7 +150,7 @@ public class UserLoginTest {
         try {
             String firstname = "Dey";
             boolean valid = user.LastNameValidate(firstname);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -166,7 +166,7 @@ public class UserLoginTest {
         try {
             String number = null;
             boolean valid = user.MobileValidate(number);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -181,7 +181,7 @@ public class UserLoginTest {
         try {
             String number = "";
             boolean valid = user.MobileValidate(number);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -196,7 +196,7 @@ public class UserLoginTest {
         try {
             String number = "8961377968";
             boolean valid = user.MobileValidate(number);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -211,7 +211,7 @@ public class UserLoginTest {
         try {
             String number = "91 89613779805";
             boolean valid = user.MobileValidate(number);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -226,7 +226,7 @@ public class UserLoginTest {
         try {
             String number = "911 8961377980";
             boolean valid = user.MobileValidate(number);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -241,7 +241,7 @@ public class UserLoginTest {
         try {
             String number = "91 8961377980";
             boolean valid = user.MobileValidate(number);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -257,7 +257,7 @@ public class UserLoginTest {
         try {
             String passwd = "";
             boolean valid = user.isPasswordValid(passwd);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -274,7 +274,7 @@ public class UserLoginTest {
        try {
             String passwd = null;
             boolean valid = user.isPasswordValid(passwd);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -290,7 +290,7 @@ public class UserLoginTest {
        try {
             String passwd = "india123@";
             boolean valid = user.isPasswordValid(passwd);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -305,7 +305,7 @@ public class UserLoginTest {
        try {
             String passwd = "India@werty";
             boolean valid = user.isPasswordValid(passwd);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -321,7 +321,7 @@ public class UserLoginTest {
        try {
             String passwd = "India123@@";
             boolean valid = user.isPasswordValid(passwd);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -338,7 +338,7 @@ public class UserLoginTest {
         try {
             String passwd = "In123@";
             boolean valid = user.isPasswordValid(passwd);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -354,7 +354,7 @@ public class UserLoginTest {
        try {
             String passwd = "India123@";
             boolean valid = user.isPasswordValid(passwd);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -370,7 +370,7 @@ public class UserLoginTest {
      try {
             String email= null;
             boolean valid = user.EmailValidate(email);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {
@@ -386,7 +386,7 @@ public class UserLoginTest {
         try {
             String email= "";
             boolean valid = user.EmailValidate(email);
-            //Assert.assertEquals(true, valid);
+
         }
         catch (UserLoginException e)
         {

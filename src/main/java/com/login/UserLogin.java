@@ -42,10 +42,10 @@ public class UserLogin {
 
             }
             return found;
-        }
+    }
 
 
-       // return false;
+
 
     public static boolean LastNameValidate(String name) throws UserLoginException {
         checkNullEmpty(name);

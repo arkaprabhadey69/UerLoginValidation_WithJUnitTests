@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.login.UserLoginTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-09-30T11:30:38" hostname="LAPTOP-JP0FR8LN" time="0.01">
+  <properties/>
+  <testcase name="if_password_does_not_have_at_least_one_number_return_false" classname="com.login.UserLoginTest" time="0.01"/>
+  <system-out><![CDATA[INVALID_PASS Invalid passwd
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
