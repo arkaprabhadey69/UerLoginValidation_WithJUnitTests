@@ -8,171 +8,392 @@ import static org.junit.Assert.*;
 public class UserLoginTest {
     UserLogin user= new UserLogin();
     @Test
-    public void if_name_matches_pattern_return_true()
-    {
-        String firstname="Arkaprabha";
-        boolean valid= user.FirstNameValidate(firstname);
-        Assert.assertEquals(true,valid);
+    public void if_name_empty_return_false()  {
+        try
+        {
+            String firstname ="";
+            boolean valid = user.FirstNameValidate(firstname);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+            System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.ENTERED_EMPTY,e.ex);
+        }
 
     }
     @Test
-    public void if_first_letter_small_return_false()
+    public void if_name_null_false_return_false()
     {
-        String firstname="arkaprabha";
-        boolean valid= user.FirstNameValidate(firstname);
-        Assert.assertEquals(false,valid);
+        try {
+            String firstname = null;
+            boolean valid = user.FirstNameValidate(firstname);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.ENTERED_NULL,e.ex);
+        }
 
     }
     @Test
     public void if_count_of_char_less_than_three_return_false()
     {
-        String firstname="Ar";
-        boolean valid= user.FirstNameValidate(firstname);
-        Assert.assertEquals(false,valid);
+        try {
+            String firstname = "Ar";
+            boolean valid = user.FirstNameValidate(firstname);
+            Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+            System.out.println(e.ex+" "+e.getMessage());
+            Assert.assertEquals(UserLoginException.ExceptionType.INVALID_FIRST_NAME,e.ex);
+        }
 
     }
     @Test
-    public void if_last_name_matches_pattern_return_true()
+    public void if_no_caps_return_false()
     {
-        String lastname="Dey";
-        boolean valid= user.LastNameValidate(lastname);
-        Assert.assertEquals(true,valid);
+        try {
+            String firstname = "arkaprabha";
+            boolean valid = user.FirstNameValidate(firstname);
+            Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+            System.out.println(e.ex+" "+e.getMessage());
+            Assert.assertEquals(UserLoginException.ExceptionType.INVALID_FIRST_NAME,e.ex);
+        }
 
     }
     @Test
-    public void if_first_letter_of_last_name_small_return_false()
+    public void pattern_matches_return_true()
     {
-        String lastname="dey";
-        boolean valid= user.LastNameValidate(lastname);
-        Assert.assertEquals(false,valid);
+        try {
+            String firstname = "Arkaprabha";
+            boolean valid = user.FirstNameValidate(firstname);
+            Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+            System.out.println(e.ex+" "+e.getMessage());
+            Assert.assertEquals(UserLoginException.ExceptionType.INVALID_FIRST_NAME,e.ex);
+        }
+
+    }
+   @Test
+   public void if_last_name_empty_return_false()  {
+        try
+        {
+            String firstname ="";
+            boolean valid = user.LastNameValidate(firstname);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+            System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.ENTERED_EMPTY,e.ex);
+        }
+
+    }
+
+    @Test
+    public void if_last_name_null_return_false()
+    {
+        try {
+            String firstname = null;
+            boolean valid = user.LastNameValidate(firstname);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.ENTERED_NULL,e.ex);
+        }
 
     }
     @Test
-    public void if_count_of_char_of_last_name_less_than_three_return_false()
+     public void if_last_name_no_caps_return_false()
     {
-        String lastname="De";
-        boolean valid= user.LastNameValidate(lastname);
-        Assert.assertEquals(false,valid);
+        try {
+            String firstname = "dey";
+            boolean valid = user.LastNameValidate(firstname);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+            System.out.println(e.ex+" "+e.getMessage());
+            Assert.assertEquals(UserLoginException.ExceptionType.INVALID_LAST_NAME,e.ex);
+        }
+
+    }
+
+    @Test
+    public void if_last_name_less_than_three_return_false()
+    {
+        try {
+            String firstname = "de";
+            boolean valid = user.LastNameValidate(firstname);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+            System.out.println(e.ex+" "+e.getMessage());
+            Assert.assertEquals(UserLoginException.ExceptionType.INVALID_LAST_NAME,e.ex);
+        }
 
     }
     @Test
-    public void if_mobile_pattern_matches_return_true()
+     public void if_last_name_matches_pattern_return_true()
     {
-        String mobile="91 8961377964";
-        boolean valid= user.MobileValidate(mobile);
-        Assert.assertEquals(true,valid);
+        try {
+            String firstname = "Dey";
+            boolean valid = user.LastNameValidate(firstname);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+            System.out.println(e.ex+" "+e.getMessage());
+            Assert.assertEquals(UserLoginException.ExceptionType.INVALID_LAST_NAME,e.ex);
+        }
+
+    }
+
+    @Test
+    public void if_number_null_given_return_false()
+    {
+        try {
+            String number = null;
+            boolean valid = user.MobileValidate(number);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.ENTERED_NULL,e.ex);
+        }
 
     }
     @Test
-    public void if_no_country_code_given_return_false()
+    public void if_number_empty_given_return_false()
     {
-        String mobile="8961377964";
-        boolean valid= user.MobileValidate(mobile);
-        Assert.assertEquals(false,valid);
+        try {
+            String number = "";
+            boolean valid = user.MobileValidate(number);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.ENTERED_EMPTY,e.ex);
+        }
 
     }
     @Test
-    public void if_no_space_after_country_code_given_return_false()
+   public void if_number_without_country_code_given_return_false()
     {
-        String mobile="918961377964";
-        boolean valid= user.MobileValidate(mobile);
-        Assert.assertEquals(false,valid);
+        try {
+            String number = "8961377968";
+            boolean valid = user.MobileValidate(number);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.INVALID_NUMBER,e.ex);
+        }
 
     }
     @Test
-    public void if_more_than_two_letters_country_code_given_return_false()
+   public void if_number_greater_than_ten_given_return_false()
     {
-        String mobile="917 8961377964";
-        boolean valid= user.MobileValidate(mobile);
-        Assert.assertEquals(false,valid);
+        try {
+            String number = "91 89613779805";
+            boolean valid = user.MobileValidate(number);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.INVALID_NUMBER,e.ex);
+        }
 
     }
     @Test
-    public void if_more_than_ten_digit_number_given_return_false()
+    public void if_country_code_greater_than_three_null_given_return_false()
     {
-        String mobile="91 78961377964";
-        boolean valid= user.MobileValidate(mobile);
-        Assert.assertEquals(false,valid);
+        try {
+            String number = "911 8961377980";
+            boolean valid = user.MobileValidate(number);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.INVALID_NUMBER,e.ex);
+        }
 
     }
     @Test
-    public void if_more_than_one_space_after_country_code_given_return_false()
+    public void if_number_matches_return_true()
     {
-        String mobile="91  8961377964";
-        boolean valid= user.MobileValidate(mobile);
-        Assert.assertEquals(false,valid);
+        try {
+            String number = "91 8961377980";
+            boolean valid = user.MobileValidate(number);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+            System.out.println(e.ex+" "+e.getMessage());
+            Assert.assertEquals(UserLoginException.ExceptionType.INVALID_NUMBER,e.ex);
+        }
+
+    }
+
+    @Test
+    public void if_password_empty_return_false()
+    {
+        try {
+            String passwd = "";
+            boolean valid = user.isPasswordValid(passwd);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.ENTERED_EMPTY,e.ex);
+        }
+
+
+    }
+
+    @Test
+    public void if_password_null_return_false()
+    {
+       try {
+            String passwd = null;
+            boolean valid = user.isPasswordValid(passwd);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.ENTERED_NULL,e.ex);
+        }
+
+    }
+
+    @Test
+    public void if_password_has_no_cap_return_false()
+    {
+       try {
+            String passwd = "india123@";
+            boolean valid = user.isPasswordValid(passwd);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.INVALID_PASS,e.ex);
+        }
+    }
+
+    @Test
+    public void if_password_does_not_have_at_least_one_number_return_false()
+    {
+       try {
+            String passwd = "India@werty";
+            boolean valid = user.isPasswordValid(passwd);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.INVALID_PASS,e.ex);
+        }
+
+    }
+
+    @Test
+    public void if_password_has_more_than_one_special_symbol_return_false()
+    {
+       try {
+            String passwd = "India123@@";
+            boolean valid = user.isPasswordValid(passwd);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.INVALID_PASS,e.ex);
+        }
+
+
+    }
+
+    @Test
+    public void if_password_does_have_at_least_eight_chars_return_false()
+    {
+        try {
+            String passwd = "In123@";
+            boolean valid = user.isPasswordValid(passwd);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.INVALID_PASS,e.ex);
+        }
+
+    }
+
+    @Test
+    public void if_password_satisfies_all_conditions_return_true()
+    {
+       try {
+            String passwd = "India123@";
+            boolean valid = user.isPasswordValid(passwd);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.INVALID_PASS,e.ex);
+        }
+
+    }
+
+    @Test
+    public void if_email_is_null_return_false()
+    {
+     try {
+            String email= null;
+            boolean valid = user.EmailValidate(email);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+           System.out.println(e.ex+" "+e.getMessage());
+           Assert.assertEquals(UserLoginException.ExceptionType.ENTERED_NULL,e.ex);
+        }
+
 
     }
     @Test
-    public void if_password_less_than_eight_chars_return_false()
+    public void if_email_is_empty_return_false()
     {
-        String password="Ind1@";
-        boolean valid= user.isPasswordValid(password);
-        Assert.assertEquals(false,valid);
+        try {
+            String email= "";
+            boolean valid = user.EmailValidate(email);
+            //Assert.assertEquals(true, valid);
+        }
+        catch (UserLoginException e)
+        {
+            System.out.println(e.ex+" "+e.getMessage());
+            Assert.assertEquals(UserLoginException.ExceptionType.ENTERED_EMPTY,e.ex);
+        }
 
-    }
-    @Test
-    public void if_password_greater_than_equal_to_eight_chars_return_true()
-    {
-        String password="India123@";
-        boolean valid= user.isPasswordValid(password);
-        Assert.assertEquals(true,valid);
-
-    }
-    @Test
-    public void if_password_has_at_least_one_cap_return_true()
-    {
-        String password="India12356@";
-        boolean valid= user.isPasswordValid(password);
-        Assert.assertEquals(true,valid);
-
-    }
-    @Test
-    public void if_password_does_not_have_at_least_one_cap_return_false()
-    {
-        String password="india12356@";
-        boolean valid= user.isPasswordValid(password);
-        Assert.assertEquals(false,valid);
-
-    }
-    @Test
-    public void if_password_does_not_have_at_least_number_return_false()
-    {
-        String password="Indialmao@";
-        boolean valid= user.isPasswordValid(password);
-        Assert.assertEquals(false,valid);
-
-    }
-    @Test
-    public void if_password_does_have_at_least_number_return_true()
-    {
-        String password="Arkapra1@";
-        boolean valid= user.isPasswordValid(password);
-        Assert.assertEquals(true,valid);
-
-    }
-    @Test
-    public void if_password_has_at_exactly_one_special_symbol_return_true()
-    {
-        String password="Arkaprabha123@";
-        boolean valid= user.isPasswordValid(password);
-        Assert.assertEquals(true,valid);
-
-    }
-    @Test
-    public void if_password_has_more_than_one_special_symbols_return_false()
-    {
-        String password="Arkapra1@@";
-        boolean valid= user.isPasswordValid(password);
-        Assert.assertEquals(false,valid);
-
-    }
-    @Test
-    public void if_email_is_correct_return_true()
-    {
-        String email="abc.xyz@1.com";
-        boolean valid= user.EmailValidate(email);
-        Assert.assertEquals(true,valid);
 
     }
 
