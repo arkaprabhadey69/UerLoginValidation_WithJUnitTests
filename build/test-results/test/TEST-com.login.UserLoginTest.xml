@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.login.UserLoginTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-09-29T10:28:52" hostname="LAPTOP-JP0FR8LN" time="0.002">
-  <properties/>
-  <testcase name="if_password_has_more_than_one_special_symbols_return_false" classname="com.login.UserLoginTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

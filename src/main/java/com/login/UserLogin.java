@@ -82,4 +82,23 @@ public class UserLogin {
         Matcher matcher2 = pattern2.matcher(password);
         return matcher1.matches()&&matcher2.matches();
     }
+    public static boolean EmailValidate(String email)
+    {
+        String number="^[a-zA-Z]+([._+-]{0,1}[a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[(com)|(co)|(net)]+(?:\\.[a-z]{2,}){0,1}$";
+
+        Pattern pattern = Pattern.compile(number);
+
+        Matcher matcher =  pattern.matcher(email);
+
+        boolean found = false;
+        while (matcher.find()) {
+            System.out.println("Valid email");
+            found = true;
+        }
+        if(!found){
+            System.out.println("Invalid email");
+        }
+        return found;
+
+    }
 }

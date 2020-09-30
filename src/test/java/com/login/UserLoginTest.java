@@ -167,5 +167,13 @@ public class UserLoginTest {
         Assert.assertEquals(false,valid);
 
     }
+    @Test
+    public void if_email_is_correct_return_true()
+    {
+        String email="abc.xyz@1.com";
+        boolean valid= user.EmailValidate(email);
+        Assert.assertEquals(true,valid);
+
+    }
 
 }
