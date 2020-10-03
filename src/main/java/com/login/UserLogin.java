@@ -3,6 +3,11 @@ package com.login;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@FunctionalInterface
+interface demo{
+    Boolean check(String mood) throws UserLoginException;
+}
+
 public class UserLogin {
 
     public void ShowWelcomeMessage()
@@ -25,8 +30,7 @@ public class UserLogin {
         }
 
 
-    public static boolean FirstNameValidate(String name) throws UserLoginException
-    {
+    public static boolean FirstNameValidate(String name) throws UserLoginException {
         checkNullEmpty(name);
             String y = "^[A-Z]{1}(?=.*[a-z]).{2,}$";
 
@@ -43,6 +47,106 @@ public class UserLogin {
             }
             return found;
     }
+
+    demo firstname = (mood) ->
+    {
+        checkNullEmpty(mood);
+        String y = "^[A-Z]{1}(?=.*[a-z]).{2,}$";
+
+        Pattern pattern = Pattern.compile(y);
+        Matcher matcher = pattern.matcher(mood);
+        boolean found = false;
+        while (matcher.find()) {
+            System.out.println("Valid first Name");
+            found = true;
+        }
+        if (!found) {
+            throw new UserLoginException(UserLoginException.ExceptionType.INVALID_FIRST_NAME,"Invalid First Name");
+
+        }
+        return found;
+    };
+
+    demo lastname = (mood) ->
+    {
+        checkNullEmpty(mood);
+        String y = "^[A-Z]{1}(?=.*[a-z]).{2,}$";
+
+        Pattern pattern = Pattern.compile(y);
+        Matcher matcher = pattern.matcher(mood);
+        boolean found = false;
+        while (matcher.find()) {
+            System.out.println("Valid last Name");
+            found = true;
+        }
+        if (!found) {
+            throw new UserLoginException(UserLoginException.ExceptionType.INVALID_LAST_NAME,"Invalid Last Name");
+
+        }
+        return found;
+
+    };
+
+    demo number = (mood) ->
+    {
+        checkNullEmpty(mood);
+        String number="^\\d{2}(\\s{1}\\d{10})$";
+        Pattern pattern = Pattern.compile(number);
+        Matcher matcher =  pattern.matcher(mood);
+        boolean found = false;
+        while (matcher.find())
+        {
+            System.out.println("Valid Number");
+            found = true;
+        }
+        if(!found)
+        {
+            throw new UserLoginException(UserLoginException.ExceptionType.INVALID_NUMBER,"Invalid number");
+        }
+        return found;
+
+
+    };
+
+    demo passwd = (mood) ->
+    {
+        checkNullEmpty(mood);
+
+        String regex2 = "^(?=.*[A-Z])(?=.*\\d)(?=.*[^\\dA-Z]).{8,}$";
+        String regex1="^(?=.*?[0-9a-zA-Z])[0-9a-zA-Z]*[@#$%][0-9a-zA-Z]*$";
+        Pattern pattern1 = Pattern.compile(regex1);
+        Pattern pattern2 = Pattern.compile(regex2);
+        Matcher matcher1 = pattern1.matcher(mood);
+        Matcher matcher2 = pattern2.matcher(mood);
+        boolean valid=matcher1.matches()&&matcher2.matches();
+        if(!valid)
+        {
+            throw new UserLoginException(UserLoginException.ExceptionType.INVALID_PASS,"Invalid passwd");
+        }
+        return valid;
+
+    };
+
+    demo email = (mood) ->
+    {
+        checkNullEmpty(mood);
+        String number="^[a-zA-Z]+([._+-]{0,1}[a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[(com)|(co)|(net)]+(?:\\.[a-z]{2,}){0,1}$";
+
+        Pattern pattern = Pattern.compile(number);
+
+        Matcher matcher =  pattern.matcher(mood);
+
+        boolean found = false;
+        while (matcher.find()) {
+            System.out.println("Valid email");
+            found = true;
+        }
+        if(!found){
+            throw new UserLoginException(UserLoginException.ExceptionType.INVALID_EMAIL,"Invalid email");
+        }
+        return found;
+    };
+
 
 
 

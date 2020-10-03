@@ -23,6 +23,21 @@ public class UserLoginTest {
 
     }
     @Test
+    public void if_Name_empty_return_false()  {
+        try
+        {
+            String firstname ="";
+            boolean valid = user.firstname.check(firstname);
+
+        }
+        catch (UserLoginException e)
+        {
+            System.out.println(e.ex+" "+e.getMessage());
+            Assert.assertEquals(UserLoginException.ExceptionType.ENTERED_EMPTY,e.ex);
+        }
+
+    }
+    @Test
     public void if_name_null_false_return_false()
     {
         try {
@@ -87,7 +102,7 @@ public class UserLoginTest {
         try
         {
             String firstname ="";
-            boolean valid = user.LastNameValidate(firstname);
+            boolean valid = user.lastname.check(firstname);
 
         }
         catch (UserLoginException e)
@@ -103,7 +118,7 @@ public class UserLoginTest {
     {
         try {
             String firstname = null;
-            boolean valid = user.LastNameValidate(firstname);
+            boolean valid = user.lastname.check(firstname);
 
         }
         catch (UserLoginException e)
@@ -118,7 +133,7 @@ public class UserLoginTest {
     {
         try {
             String firstname = "dey";
-            boolean valid = user.LastNameValidate(firstname);
+            boolean valid = user.lastname.check(firstname);
 
         }
         catch (UserLoginException e)
@@ -134,7 +149,7 @@ public class UserLoginTest {
     {
         try {
             String firstname = "de";
-            boolean valid = user.LastNameValidate(firstname);
+            boolean valid = user.lastname.check(firstname);
 
         }
         catch (UserLoginException e)
@@ -149,7 +164,7 @@ public class UserLoginTest {
     {
         try {
             String firstname = "Dey";
-            boolean valid = user.LastNameValidate(firstname);
+            boolean valid = user.lastname.check(firstname);
 
         }
         catch (UserLoginException e)
@@ -180,7 +195,7 @@ public class UserLoginTest {
     {
         try {
             String number = "";
-            boolean valid = user.MobileValidate(number);
+            boolean valid = user.number.check(number);
 
         }
         catch (UserLoginException e)
@@ -195,7 +210,7 @@ public class UserLoginTest {
     {
         try {
             String number = "8961377968";
-            boolean valid = user.MobileValidate(number);
+            boolean valid = user.number.check(number);
 
         }
         catch (UserLoginException e)
@@ -210,7 +225,7 @@ public class UserLoginTest {
     {
         try {
             String number = "91 89613779805";
-            boolean valid = user.MobileValidate(number);
+            boolean valid = user.number.check(number);
 
         }
         catch (UserLoginException e)
@@ -225,7 +240,7 @@ public class UserLoginTest {
     {
         try {
             String number = "911 8961377980";
-            boolean valid = user.MobileValidate(number);
+            boolean valid = user.number.check(number);
 
         }
         catch (UserLoginException e)
@@ -240,7 +255,7 @@ public class UserLoginTest {
     {
         try {
             String number = "91 8961377980";
-            boolean valid = user.MobileValidate(number);
+            boolean valid = user.number.check(number);
 
         }
         catch (UserLoginException e)
@@ -256,7 +271,7 @@ public class UserLoginTest {
     {
         try {
             String passwd = "";
-            boolean valid = user.isPasswordValid(passwd);
+            boolean valid = user.passwd.check(passwd);
 
         }
         catch (UserLoginException e)
@@ -273,7 +288,7 @@ public class UserLoginTest {
     {
        try {
             String passwd = null;
-            boolean valid = user.isPasswordValid(passwd);
+            boolean valid = user.passwd.check(passwd);
 
         }
         catch (UserLoginException e)
@@ -289,7 +304,7 @@ public class UserLoginTest {
     {
        try {
             String passwd = "india123@";
-            boolean valid = user.isPasswordValid(passwd);
+            boolean valid = user.passwd.check(passwd);
 
         }
         catch (UserLoginException e)
@@ -304,7 +319,7 @@ public class UserLoginTest {
     {
        try {
             String passwd = "India@werty";
-            boolean valid = user.isPasswordValid(passwd);
+            boolean valid = user.passwd.check(passwd);
 
         }
         catch (UserLoginException e)
@@ -320,7 +335,7 @@ public class UserLoginTest {
     {
        try {
             String passwd = "India123@@";
-            boolean valid = user.isPasswordValid(passwd);
+            boolean valid = user.passwd.check(passwd);
 
         }
         catch (UserLoginException e)
@@ -337,7 +352,7 @@ public class UserLoginTest {
     {
         try {
             String passwd = "In123@";
-            boolean valid = user.isPasswordValid(passwd);
+            boolean valid = user.passwd.check(passwd);
 
         }
         catch (UserLoginException e)
@@ -369,7 +384,7 @@ public class UserLoginTest {
     {
      try {
             String email= null;
-            boolean valid = user.EmailValidate(email);
+            boolean valid = user.email.check(email);
 
         }
         catch (UserLoginException e)
@@ -385,7 +400,7 @@ public class UserLoginTest {
     {
         try {
             String email= "";
-            boolean valid = user.EmailValidate(email);
+            boolean valid = user.email.check(email);
 
         }
         catch (UserLoginException e)

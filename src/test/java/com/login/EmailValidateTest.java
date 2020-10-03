@@ -30,10 +30,10 @@ public class EmailValidateTest {
                 "abc123@.com","abc123@.com.com","abc-100@yahoo.com","abc@gmail.com.aa.au"});
     }
     @Test
-    public void given_correct_Email_must_return_true() throws UserLoginException {
+    public void given_correct_Email_must_return_true()  {
         UserLogin u= new UserLogin();
         try {
-            boolean result = u.EmailValidate(this.email);
+            boolean result = u.email.check(this.email);
             Assert.assertTrue(result);
         }
         catch (UserLoginException e)
